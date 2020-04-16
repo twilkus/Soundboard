@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-
+        private Control _pressedButton;
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
         {
@@ -50,8 +50,9 @@ namespace WindowsFormsApp1
         {
 
             Control pressedButton = sender as Control;
+            _pressedButton = pressedButton;
 
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 setFileList();
                 Globals.soundFiles.Sort();
@@ -64,9 +65,9 @@ namespace WindowsFormsApp1
                 Globals.cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
 
 
-                MessageBox.Show("1");
+                //MessageBox.Show("");
 
-                pressedButton.Text = Globals.buttonText;
+                //pressedButton.Text = Globals.buttonText;
 
             }
             else
@@ -99,8 +100,8 @@ namespace WindowsFormsApp1
         private void MenuItem_Click(Object sender, System.EventArgs e)
         {
             MenuItem item = sender as MenuItem;
-
-            Globals.buttonText = item.Text;
+            _pressedButton.Text = item.Text;
+            //Globals.buttonText = item.Text;
 
         }
     }
