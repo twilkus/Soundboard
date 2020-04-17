@@ -96,11 +96,6 @@
             this.button4.Click += new System.EventHandler(this.soundButton_Click);
             this.button4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
             // SetSoundFolderButton
             // 
             this.SetSoundFolderButton.Location = new System.Drawing.Point(13, 277);
@@ -230,6 +225,7 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.soundButton_Click);
             this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+
             // 
             // button15
             // 
