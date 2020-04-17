@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,6 +51,9 @@
             this.button16 = new System.Windows.Forms.Button();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -124,9 +128,9 @@
             // KillSoundButton
             // 
             this.KillSoundButton.BackColor = System.Drawing.Color.Red;
-            this.KillSoundButton.Location = new System.Drawing.Point(331, 336);
+            this.KillSoundButton.Location = new System.Drawing.Point(331, 289);
             this.KillSoundButton.Name = "KillSoundButton";
-            this.KillSoundButton.Size = new System.Drawing.Size(100, 34);
+            this.KillSoundButton.Size = new System.Drawing.Size(100, 82);
             this.KillSoundButton.TabIndex = 18;
             this.KillSoundButton.Text = "Stop All Sounds";
             this.KillSoundButton.UseVisualStyleBackColor = false;
@@ -161,7 +165,7 @@
             // button7
             // 
             this.button7.AccessibleDescription = "pathButton7Key";
-            this.button7.Location = new System.Drawing.Point(325, 211);
+            this.button7.Location = new System.Drawing.Point(331, 211);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 60);
             this.button7.TabIndex = 20;
@@ -291,7 +295,7 @@
             // labelFolderPath
             // 
             this.labelFolderPath.AutoSize = true;
-            this.labelFolderPath.Location = new System.Drawing.Point(119, 288);
+            this.labelFolderPath.Location = new System.Drawing.Point(13, 314);
             this.labelFolderPath.Name = "labelFolderPath";
             this.labelFolderPath.Size = new System.Drawing.Size(91, 13);
             this.labelFolderPath.TabIndex = 31;
@@ -299,12 +303,29 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(13, 336);
+            this.trackBar1.Location = new System.Drawing.Point(16, 330);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
             this.trackBar1.TabIndex = 32;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem1});
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 0;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem2});
+            this.menuItem1.Text = "File";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 0;
+            this.menuItem2.Text = "Clear All Buttons";
             // 
             // Form1
             // 
@@ -333,6 +354,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.ShowIcon = false;
@@ -369,6 +391,9 @@
         private System.Windows.Forms.Button SetSoundFolderButton;
         private System.Windows.Forms.Label labelFolderPath;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItem2;
     }
 }
 
