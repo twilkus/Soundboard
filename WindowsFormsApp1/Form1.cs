@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WMPLib;
-using System.IO;
-using System.Globalization;
-
-namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using System.IO;
+    using System.Globalization;
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -36,14 +30,11 @@ namespace WindowsFormsApp1
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 soundFolderPath = labelFolderPath.Text;
-            }
-            
-           
+            }           
         }
 
         private void button_MouseUp(object sender, MouseEventArgs e)
         {
-
             Control pressedButton = sender as Control;
             _pressedButton = pressedButton;
 
@@ -58,12 +49,6 @@ namespace WindowsFormsApp1
                 }
 
                 cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
-
-
-                //MessageBox.Show("");
-
-                //pressedButton.Text = buttonText;
-
             }
             else
             {
@@ -96,8 +81,6 @@ namespace WindowsFormsApp1
         {
             MenuItem item = sender as MenuItem;
             _pressedButton.Text = item.Text;
-            //buttonText = item.Text;
-
         }
     }
 }
