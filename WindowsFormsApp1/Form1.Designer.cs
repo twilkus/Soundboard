@@ -126,7 +126,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.soundButton_Click);
             this.button5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button6
             // 
@@ -137,7 +136,6 @@
             this.button6.Text = "(Empty)";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.soundButton_Click);
-            this.button6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             this.button6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button7
@@ -150,7 +148,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.soundButton_Click);
             this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button8
             // 
@@ -161,7 +158,6 @@
             this.button8.Text = "(Empty)";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.soundButton_Click);
-            this.button8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             this.button8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button9
@@ -174,7 +170,6 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.soundButton_Click);
             this.button9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button10
             // 
@@ -185,7 +180,6 @@
             this.button10.Text = "(Empty)";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.soundButton_Click);
-            this.button10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             this.button10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button11
@@ -198,7 +192,6 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.soundButton_Click);
             this.button11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button12
             // 
@@ -209,7 +202,6 @@
             this.button12.Text = "(Empty)";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.soundButton_Click);
-            this.button12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             this.button12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button13
@@ -222,7 +214,6 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.soundButton_Click);
             this.button13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button14
             // 
@@ -234,7 +225,7 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.soundButton_Click);
             this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+
             // 
             // button15
             // 
@@ -246,7 +237,6 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.soundButton_Click);
             this.button15.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            this.button15.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button16
             // 
@@ -257,7 +247,6 @@
             this.button16.Text = "(Empty)";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.soundButton_Click);
-            this.button16.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             this.button16.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // labelFolderPath

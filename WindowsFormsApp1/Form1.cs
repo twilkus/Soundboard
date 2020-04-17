@@ -24,15 +24,20 @@
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
         {
+            setSoundFolderPath();
+        }
+
+        private void setSoundFolderPath()
+        {
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
             folderBrowserDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
             DialogResult result = folderBrowserDialog1.ShowDialog();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 soundFolderPath = labelFolderPath.Text;
-            }           
+            }
         }
 
         private void button_MouseUp(object sender, MouseEventArgs e)
@@ -42,6 +47,16 @@
 
             if (e.Button == MouseButtons.Right)
             {
+                if(soundFolderPath == null)
+                {
+                    setSoundFolderPath();
+                }
+
+                if(soundFolderPath == null)
+                {
+                    return;
+                }
+
                 setFileList();
                 soundFiles.Sort();
                 cm = new ContextMenu();
