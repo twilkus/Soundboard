@@ -234,7 +234,7 @@
             this.labelFolderPath.TabIndex = 31;
             this.labelFolderPath.Text = "No Path Selected";
             // 
-            // Form2
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
