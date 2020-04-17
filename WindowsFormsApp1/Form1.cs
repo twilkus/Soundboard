@@ -114,11 +114,7 @@
                 button.AccessibleDescription = soundFolderPath;
             }
             var path = $@"{button.AccessibleDescription}\{button.Text}.mp3";
-            if (!File.Exists(path))
-            {
-                MessageBox.Show("File not found");
-            }
-            else
+            if (File.Exists(path))
             {
                 _player.URL = path;
                 _player.controls.play();
