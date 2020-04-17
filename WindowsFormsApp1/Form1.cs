@@ -79,7 +79,7 @@
             _pressedButton.Text = item.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void soundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
             var path = $@"{soundFolderPath}\{button.Text}.mp3";
