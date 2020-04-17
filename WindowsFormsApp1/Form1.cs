@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
     using System.IO;
@@ -9,6 +10,7 @@
 
     public partial class Form1 : Form
     {
+        private const string pathConfigurationKey = "SoundsPath";
         private Control _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
@@ -20,6 +22,17 @@
         {
             InitializeComponent();
             _player = new WMPLib.WindowsMediaPlayer();
+            SetPath();
+        }
+
+        private void SetPath()
+        {
+            var path = ConfigurationManager.AppSettings[pathConfigurationKey];
+            if(!string.IsNullOrEmpty(path) && Directory.Exists(path))
+            {
+                soundFolderPath = path;
+                labelFolderPath.Text = path;
+            }
         }
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
@@ -37,6 +50,7 @@
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 soundFolderPath = labelFolderPath.Text;
+                ConfigHelper.AddUpdateAppSettings(pathConfigurationKey, soundFolderPath);
             }
         }
 
@@ -97,7 +111,11 @@
         private void soundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var path = $@"{soundFolderPath}\{button.Text}.mp3";
+            if (string.IsNullOrEmpty(button.AccessibleDescription))
+            {
+                button.AccessibleDescription = soundFolderPath;
+            }
+            var path = $@"{button.AccessibleDescription}\{button.Text}.mp3";
             if (!File.Exists(path))
             {
                 MessageBox.Show("File not found");
