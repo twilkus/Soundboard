@@ -126,5 +126,10 @@
                 _player.controls.play();
             }
         }
+
+        private void KillSoundButton_Click(object sender, EventArgs e)
+        {
+            _player.controls.stop();
+        }
     }
 }

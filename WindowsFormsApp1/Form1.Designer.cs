@@ -115,6 +115,7 @@
             this.KillSoundButton.TabIndex = 18;
             this.KillSoundButton.Text = "Stop All Sounds";
             this.KillSoundButton.UseVisualStyleBackColor = false;
+            this.KillSoundButton.Click += new System.EventHandler(this.KillSoundButton_Click);
             // 
             // button5
             // 
@@ -225,7 +226,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.soundButton_Click);
             this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-
             // 
             // button15
             // 
