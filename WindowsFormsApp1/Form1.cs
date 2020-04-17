@@ -11,12 +11,11 @@
     public partial class Form1 : Form
     {
         private const string pathConfigurationKey = "SoundsPath";
-        private const string pathButton1Key = "pathButton1";
+        public const string pathButton1Key = "pathButton1";
         private Control _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-
         private WMPLib.WindowsMediaPlayer _player;
 
         public Form1()
@@ -41,6 +40,8 @@
                 button1.Text = buttonName;
             }
         }
+
+
 
         private void SetPath()
         {
@@ -154,20 +155,6 @@
                     _player.controls.play();
                 }
             }
-            /*
-            else if (string.IsNullOrEmpty(button.AccessibleDescription))
-            {
-                button.AccessibleDescription = soundFolderPath;
-            }
-
-            var path = $@"{button.AccessibleDescription}\{button.Text}.mp3";
-            
-            if (File.Exists(path))
-            {
-                _player.URL = path;
-                _player.controls.play();
-            }
-            */
         }
 
         private void KillSoundButton_Click(object sender, EventArgs e)
