@@ -11,6 +11,7 @@
     public partial class Form1 : Form
     {
         private const string pathConfigurationKey = "SoundsPath";
+        private const string pathButton1Key = "pathButton1";
         private Control _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;

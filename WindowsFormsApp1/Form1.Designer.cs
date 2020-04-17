@@ -66,6 +66,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.soundButton_Click);
             this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            this.button1.Tag = "";
             // 
             // button2
             // 
