@@ -9,16 +9,18 @@
 
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
         private Control _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-        private string buttonText = null;
+
+        private WMPLib.WindowsMediaPlayer _player;
+
+        public Form1()
+        {
+            InitializeComponent();
+            _player = new WMPLib.WindowsMediaPlayer();
+        }
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
         {
@@ -50,12 +52,6 @@
 
                 cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
             }
-            else
-            {
-                WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
-                player.URL = soundFolderPath + "\\" + buttonText + "\\" + ".mp3";
-                player.controls.play();
-            }
         }
 
         private void setFileList()
@@ -81,6 +77,21 @@
         {
             MenuItem item = sender as MenuItem;
             _pressedButton.Text = item.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var path = $@"{soundFolderPath}\{button.Text}.mp3";
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("File not found");
+            }
+            else
+            {
+                _player.URL = path;
+                _player.controls.play();
+            }
         }
     }
 }

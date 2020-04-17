@@ -60,6 +60,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "(Empty)";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button2
