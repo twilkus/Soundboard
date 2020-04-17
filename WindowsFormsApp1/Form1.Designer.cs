@@ -49,7 +49,11 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.labelFolderPath = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar1.Minimum = 0;
+            this.trackBar1.Maximum = 100;
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -96,6 +100,11 @@
             this.button4.Click += new System.EventHandler(this.soundButton_Click);
             this.button4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // SetSoundFolderButton
             // 
             this.SetSoundFolderButton.Location = new System.Drawing.Point(13, 277);
@@ -109,7 +118,7 @@
             // KillSoundButton
             // 
             this.KillSoundButton.BackColor = System.Drawing.Color.Red;
-            this.KillSoundButton.Location = new System.Drawing.Point(331, 277);
+            this.KillSoundButton.Location = new System.Drawing.Point(331, 336);
             this.KillSoundButton.Name = "KillSoundButton";
             this.KillSoundButton.Size = new System.Drawing.Size(100, 34);
             this.KillSoundButton.TabIndex = 18;
@@ -225,7 +234,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.soundButton_Click);
             this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-
             // 
             // button15
             // 
@@ -258,12 +266,21 @@
             this.labelFolderPath.TabIndex = 31;
             this.labelFolderPath.Text = "No Path Selected";
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(13, 336);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 32;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(444, 324);
+            this.ClientSize = new System.Drawing.Size(438, 384);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.labelFolderPath);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
@@ -290,6 +307,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Soundboard";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,6 +336,7 @@
         private System.Windows.Forms.Button KillSoundButton;
         private System.Windows.Forms.Button SetSoundFolderButton;
         private System.Windows.Forms.Label labelFolderPath;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
