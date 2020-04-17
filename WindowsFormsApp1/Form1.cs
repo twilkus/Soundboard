@@ -26,11 +26,11 @@ namespace WindowsFormsApp1
             folderBrowserDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
             DialogResult result = folderBrowserDialog1.ShowDialog();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 soundFolderPath = labelFolderPath.Text;
-            }           
+            }
         }
 
         private void button_MouseUp(object sender, MouseEventArgs e)
@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
         {
             soundFiles = new List<string>();
 
-            String[] soundFilesWithPath = Directory.GetFiles(soundFolderPath,"*.mp3");
+            String[] soundFilesWithPath = Directory.GetFiles(soundFolderPath, "*.mp3");
             TextInfo ti = new CultureInfo("en-US", false).TextInfo;
 
             foreach (var item in soundFilesWithPath)
