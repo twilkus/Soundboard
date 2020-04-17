@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
     using System.IO;
@@ -9,6 +10,7 @@
 
     public partial class Form1 : Form
     {
+        private const string pathConfigurationKey = "SoundsPath";
         private Control _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
@@ -20,6 +22,40 @@
         {
             InitializeComponent();
             _player = new WMPLib.WindowsMediaPlayer();
+            SetPath();
+        }
+
+        private void SetPath()
+        {
+            var path = ConfigurationManager.AppSettings[pathConfigurationKey];
+            if(!string.IsNullOrEmpty(path) && Directory.Exists(path))
+            {
+                soundFolderPath = path;
+                labelFolderPath.Text = path;
+            }
+        }
+
+        static void AddUpdateAppSettings(string key, string value)
+        {
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings[key] == null)
+                {
+                    settings.Add(key, value);
+                }
+                else
+                {
+                    settings[key].Value = value;
+                }
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+            catch (ConfigurationErrorsException)
+            {
+                Console.WriteLine("Error writing app settings");
+            }
         }
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
@@ -32,7 +68,8 @@
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 soundFolderPath = labelFolderPath.Text;
-            }           
+                AddUpdateAppSettings(pathConfigurationKey, soundFolderPath);
+            }
         }
 
         private void button_MouseUp(object sender, MouseEventArgs e)
