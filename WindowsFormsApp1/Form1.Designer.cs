@@ -96,6 +96,11 @@
             this.button4.Click += new System.EventHandler(this.soundButton_Click);
             this.button4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // SetSoundFolderButton
             // 
             this.SetSoundFolderButton.Location = new System.Drawing.Point(13, 277);
@@ -115,6 +120,7 @@
             this.KillSoundButton.TabIndex = 18;
             this.KillSoundButton.Text = "Stop All Sounds";
             this.KillSoundButton.UseVisualStyleBackColor = false;
+            this.KillSoundButton.Click += new System.EventHandler(this.KillSoundButton_Click);
             // 
             // button5
             // 
@@ -225,7 +231,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.soundButton_Click);
             this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-
             // 
             // button15
             // 
