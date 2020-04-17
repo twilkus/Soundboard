@@ -13,7 +13,6 @@ using System.Globalization;
 
 namespace WindowsFormsApp1
 {
-
     public partial class Form1 : Form
     {
         public Form1()
@@ -22,10 +21,10 @@ namespace WindowsFormsApp1
         }
 
         private Control _pressedButton;
-        public static string soundFolderPath;
-        public static List<string> soundFiles;
-        public static ContextMenu cm;
-        public static string buttonText = null;
+        private string soundFolderPath;
+        private List<string> soundFiles;
+        private ContextMenu cm;
+        private string buttonText = null;
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
         {
