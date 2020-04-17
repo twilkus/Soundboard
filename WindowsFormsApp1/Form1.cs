@@ -22,6 +22,8 @@
         {
             InitializeComponent();
             _player = new WMPLib.WindowsMediaPlayer();
+            trackBar1.Value = 100;
+            _player.settings.volume = 100;
             SetPath();
         }
 
@@ -130,6 +132,11 @@
         private void KillSoundButton_Click(object sender, EventArgs e)
         {
             _player.controls.stop();
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            _player.settings.volume = trackBar1.Value;
+
         }
     }
 }
