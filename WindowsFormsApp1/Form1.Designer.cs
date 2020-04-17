@@ -50,6 +50,8 @@
             this.button16 = new System.Windows.Forms.Button();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar1.Minimum = 0;
+            this.trackBar1.Maximum = 100;
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
