@@ -92,11 +92,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
             // SetSoundFolderButton
             // 
             this.SetSoundFolderButton.Location = new System.Drawing.Point(13, 277);
@@ -125,6 +120,7 @@
             this.button5.TabIndex = 22;
             this.button5.Text = "(Empty)";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button6
             // 
@@ -134,6 +130,7 @@
             this.button6.TabIndex = 21;
             this.button6.Text = "(Empty)";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button7
             // 
@@ -143,6 +140,7 @@
             this.button7.TabIndex = 20;
             this.button7.Text = "(Empty)";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button8
             // 
@@ -152,6 +150,7 @@
             this.button8.TabIndex = 19;
             this.button8.Text = "(Empty)";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button9
             // 
@@ -161,6 +160,7 @@
             this.button9.TabIndex = 26;
             this.button9.Text = "(Empty)";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button10
             // 
@@ -170,6 +170,7 @@
             this.button10.TabIndex = 25;
             this.button10.Text = "(Empty)";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button11
             // 
@@ -179,6 +180,7 @@
             this.button11.TabIndex = 24;
             this.button11.Text = "(Empty)";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button12
             // 
@@ -188,6 +190,7 @@
             this.button12.TabIndex = 23;
             this.button12.Text = "(Empty)";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button13
             // 
@@ -197,6 +200,7 @@
             this.button13.TabIndex = 30;
             this.button13.Text = "(Empty)";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button14
             // 
@@ -206,6 +210,7 @@
             this.button14.TabIndex = 29;
             this.button14.Text = "(Empty)";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button15
             // 
@@ -215,6 +220,7 @@
             this.button15.TabIndex = 28;
             this.button15.Text = "(Empty)";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button16
             // 
@@ -224,6 +230,7 @@
             this.button16.TabIndex = 27;
             this.button16.Text = "(Empty)";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // labelFolderPath
             // 
