@@ -94,12 +94,8 @@
 
             foreach (var item in soundFilesWithPath)
             {
-                var sections = item.Split('\\');
-                var fileNameWithExt = (sections[sections.Length - 1]).Split('.');
-                var fileName = fileNameWithExt[0];
-
+                var fileName = Path.GetFileNameWithoutExtension(item);
                 fileName = ti.ToTitleCase(fileName);
-
                 soundFiles.Add(fileName);
             }
         }
