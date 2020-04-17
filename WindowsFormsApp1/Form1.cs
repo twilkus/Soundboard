@@ -23,9 +23,23 @@
         {
             InitializeComponent();
             _player = new WMPLib.WindowsMediaPlayer();
-            trackBar1.Value = 100;
-            _player.settings.volume = 100;
+            trackBar1.Value = 50;
+            _player.settings.volume = 50;
             SetPath();
+            SetButtonPaths();
+        }
+
+        private void SetButtonPaths()
+        {
+            if ((!string.IsNullOrEmpty(ConfigurationManager.AppSettings[pathButton1Key])) && (File.Exists(ConfigurationManager.AppSettings[pathButton1Key])))
+            {
+                var buttonPath = ConfigurationManager.AppSettings[pathButton1Key];
+                var buttonName = Path.GetFileNameWithoutExtension(buttonPath);
+                TextInfo ti = new CultureInfo("en-US", false).TextInfo;
+                buttonName = ti.ToTitleCase(buttonName);
+                button1.Tag = buttonPath;
+                button1.Text = buttonName;
+            }
         }
 
         private void SetPath()
@@ -105,21 +119,55 @@
         {
             MenuItem item = sender as MenuItem;
             _pressedButton.Text = item.Text;
+            _pressedButton.Tag = soundFolderPath + "\\" + _pressedButton.Text + ".mp3";
+            string path = _pressedButton.Tag as string;
+            
+            SaveButtonPathToConfig(path);
+            
+        }
+
+        private void SaveButtonPathToConfig(string buttonPath)
+        {
+            var caseSwitch = _pressedButton.Name;
+
+            switch (caseSwitch)
+            {
+                case "button1":
+                    {
+                        ConfigHelper.AddUpdateAppSettings(pathButton1Key, buttonPath);
+                        break;
+                    }             
+            }
         }
 
         private void soundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            if (string.IsNullOrEmpty(button.AccessibleDescription))
+            var path = "";
+            if(button.Tag != null)
+            {
+                path = button.Tag as string;
+
+                if (File.Exists(path))
+                {
+                    _player.URL = path;
+                    _player.controls.play();
+                }
+            }
+            /*
+            else if (string.IsNullOrEmpty(button.AccessibleDescription))
             {
                 button.AccessibleDescription = soundFolderPath;
             }
+
             var path = $@"{button.AccessibleDescription}\{button.Text}.mp3";
+            
             if (File.Exists(path))
             {
                 _player.URL = path;
                 _player.controls.play();
             }
+            */
         }
 
         private void KillSoundButton_Click(object sender, EventArgs e)
