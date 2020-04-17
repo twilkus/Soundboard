@@ -13,14 +13,6 @@ using System.Globalization;
 
 namespace WindowsFormsApp1
 {
-    static class Globals
-    {
-        public static string soundFolderPath;
-        public static List<string> soundFiles;
-        public static ContextMenu cm;
-        public static string buttonText = null;
-
-    }
 
     public partial class Form1 : Form
     {
@@ -30,6 +22,10 @@ namespace WindowsFormsApp1
         }
 
         private Control _pressedButton;
+        public static string soundFolderPath;
+        public static List<string> soundFiles;
+        public static ContextMenu cm;
+        public static string buttonText = null;
 
         private void SetSoundFolderButton_Click(object sender, EventArgs e)
         {
@@ -40,7 +36,7 @@ namespace WindowsFormsApp1
             if(result == DialogResult.OK)
             {
                 labelFolderPath.Text = folderBrowserDialog1.SelectedPath;
-                Globals.soundFolderPath = labelFolderPath.Text;
+                soundFolderPath = labelFolderPath.Text;
             }
             
            
@@ -55,34 +51,34 @@ namespace WindowsFormsApp1
             if (e.Button == MouseButtons.Right)
             {
                 setFileList();
-                Globals.soundFiles.Sort();
-                Globals.cm = new ContextMenu();
-                foreach (var item in Globals.soundFiles)
+                soundFiles.Sort();
+                cm = new ContextMenu();
+                foreach (var item in soundFiles)
                 {
-                    Globals.cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
+                    cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
                 }
 
-                Globals.cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
+                cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
 
 
                 //MessageBox.Show("");
 
-                //pressedButton.Text = Globals.buttonText;
+                //pressedButton.Text = buttonText;
 
             }
             else
             {
                 WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
-                player.URL = Globals.soundFolderPath + "\\" + Globals.buttonText + "\\" + ".mp3";
+                player.URL = soundFolderPath + "\\" + buttonText + "\\" + ".mp3";
                 player.controls.play();
             }
         }
 
         private void setFileList()
         {
-            Globals.soundFiles = new List<string>();
+            soundFiles = new List<string>();
 
-            String[] soundFilesWithPath = Directory.GetFiles(Globals.soundFolderPath,"*.mp3");
+            String[] soundFilesWithPath = Directory.GetFiles(soundFolderPath,"*.mp3");
             TextInfo ti = new CultureInfo("en-US", false).TextInfo;
 
             foreach (var item in soundFilesWithPath)
@@ -93,7 +89,7 @@ namespace WindowsFormsApp1
 
                 fileName = ti.ToTitleCase(fileName);
 
-                Globals.soundFiles.Add(fileName);
+                soundFiles.Add(fileName);
             }
         }
 
@@ -101,7 +97,7 @@ namespace WindowsFormsApp1
         {
             MenuItem item = sender as MenuItem;
             _pressedButton.Text = item.Text;
-            //Globals.buttonText = item.Text;
+            //buttonText = item.Text;
 
         }
     }
