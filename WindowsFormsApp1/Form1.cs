@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Soundboard
 {
     using System;
     using System.Collections.Generic;
