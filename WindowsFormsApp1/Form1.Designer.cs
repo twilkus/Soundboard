@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Soundboard
 {
     partial class Form1
     {
