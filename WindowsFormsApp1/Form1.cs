@@ -33,6 +33,7 @@
         private List<string> soundFiles;
         private ContextMenu cm;
         private WMPLib.WindowsMediaPlayer _player;
+        private List<string> selectedOptions = new List<string>();
 
         public Form1()
         {
@@ -58,6 +59,7 @@
                     buttonName = ti.ToTitleCase(buttonName);
                     button.Tag = buttonPath;
                     button.Text = buttonName;
+                    SetRightClickSelectedOptions(buttonName);
                 }
             }
         }
@@ -113,7 +115,10 @@
                 cm = new ContextMenu();
                 foreach (var item in soundFiles)
                 {
-                    cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
+                    if (!selectedOptions.Contains(item))
+                    {
+                        cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
+                    }
                 }
 
                 cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
@@ -123,7 +128,6 @@
         private void setFileList()
         {
             soundFiles = new List<string>();
-
             String[] soundFilesWithPath = Directory.GetFiles(soundFolderPath,"*.mp3");
             TextInfo ti = new CultureInfo("en-US", false).TextInfo;
 
@@ -141,9 +145,14 @@
             _pressedButton.Text = item.Text;
             _pressedButton.Tag = soundFolderPath + "\\" + _pressedButton.Text + ".mp3";
             string path = _pressedButton.Tag as string;
-            
+            SetRightClickSelectedOptions(_pressedButton.Text);
             SaveButtonPathToConfig(path);
             
+        }
+
+        private void SetRightClickSelectedOptions(String selected)
+        {
+            selectedOptions.Add(selected);
         }
 
         private void SaveButtonPathToConfig(string buttonPath)
@@ -151,7 +160,7 @@
             ConfigHelper.AddUpdateAppSettings(_pressedButton.AccessibleDescription, buttonPath);
         }
 
-        private void soundButton_Click(object sender, EventArgs e)
+        private void SoundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
             var path = "";
