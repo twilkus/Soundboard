@@ -329,7 +329,7 @@
             // 
             this.menuItem2.Index = 0;
             this.menuItem2.Text = "Clear All Buttons";
-            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            this.menuItem2.Click += new System.EventHandler(this.ClearAllButtons_Click);
             // 
             // label1
             // 
