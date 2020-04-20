@@ -168,6 +168,11 @@
             ConfigHelper.AddUpdateAppSettings(_pressedButton.AccessibleDescription, buttonPath);
         }
 
+        private void SaveButtonPathToConfig(Button button, string buttonPath)
+        {
+            ConfigHelper.AddUpdateAppSettings(button.AccessibleDescription, buttonPath);
+        }
+
         private void SoundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
@@ -201,6 +206,7 @@
 
             foreach(var button in AllButtons)
             {
+                SaveButtonPathToConfig(button, "");
                 button.Tag = "";
                 button.Text = "(Empty)";
             }
