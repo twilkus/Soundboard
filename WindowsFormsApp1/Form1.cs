@@ -32,8 +32,8 @@
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-        private WMPLib.WindowsMediaPlayer _player;
         private Dictionary<string, WMPLib.WindowsMediaPlayer> _playerDictionary;
+        private List<string> selectedOptions = new List<string>();
 
         public Form1()
         {
