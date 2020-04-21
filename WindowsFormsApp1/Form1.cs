@@ -55,7 +55,6 @@
                     TextInfo ti = new CultureInfo("en-US", false).TextInfo;
                     buttonName = ti.ToTitleCase(buttonName);
                     button.Path = buttonPath;
-                    button.ButtonName = buttonName;
                     button.Text = buttonName;
                     SetRightClickSelectedOptions(buttonName);
                 }
@@ -151,7 +150,7 @@
             var buttonName = item.Text;
             var path = soundFolderPath + "\\" + buttonName + ".mp3";
 
-            _pressedButton.Text = _pressedButton.ButtonName = buttonName;
+            _pressedButton.Text = buttonName;
             _pressedButton.Path = path;
             
             SetRightClickSelectedOptions(_pressedButton.Text);
@@ -205,8 +204,7 @@
             {
                 SaveButtonPathToConfig(button, "");
                 button.Path = "";
-                button.ButtonName = "(Empty)";
-                button.Text = button.ButtonName;
+                button.Text = "(Empty)";
                 button.Player = new Player();
             }
             selectedOptions.Clear();

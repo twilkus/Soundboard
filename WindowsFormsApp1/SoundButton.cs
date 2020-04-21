@@ -9,11 +9,10 @@ namespace Soundboard
             Player = new Player();
         }
 
-        public SoundButton(string buttonName, string path)
+        public SoundButton(string text, string path)
         {
             Player = new Player();
-            Text = buttonName;
-            ButtonName = buttonName;
+            Text = text;
             Path = path;
         }
 
@@ -30,6 +29,5 @@ namespace Soundboard
                 Player.WindowsMediaPlayer.controls.stop();
             }
         }
-        public string ButtonName { get; set; }
     }
 }
