@@ -56,6 +56,7 @@
                     buttonName = ti.ToTitleCase(buttonName);
                     button.Path = buttonPath;
                     button.ButtonName = buttonName;
+                    button.Text = buttonName;
                     SetRightClickSelectedOptions(buttonName);
                 }
             }
