@@ -1,7 +1,7 @@
 using System;
 using System.Configuration;
 
-namespace WindowsFormsApp1
+namespace Soundboard
 {
     public static class ConfigHelper
     {
