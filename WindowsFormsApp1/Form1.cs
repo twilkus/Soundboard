@@ -216,7 +216,7 @@
                 button.Tag = "";
                 button.Text = "(Empty)";
             }
-
+            _playerDictionary = new Dictionary<string, WMPLib.WindowsMediaPlayer>();
             selectedOptions.Clear();
         }
     }
