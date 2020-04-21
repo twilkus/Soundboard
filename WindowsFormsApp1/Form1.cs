@@ -28,25 +28,25 @@
         public const string pathButton14Key = "pathButton14";
         public const string pathButton15Key = "pathButton15";
         public const string pathButton16Key = "pathButton16";
-        private Control _pressedButton;
+        private SoundButton _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-        private Dictionary<string, WMPLib.WindowsMediaPlayer> _playerDictionary;
+        private List<SoundButton> _soundButtons;
         private List<string> selectedOptions = new List<string>();
 
         public Form1()
         {
             InitializeComponent();
             trackBar1.Value = 50;
-            _playerDictionary = new Dictionary<string, WMPLib.WindowsMediaPlayer>();
+            _soundButtons = new List<SoundButton>();
             SetPath();
             SetButtonPaths();
         }
 
         private void SetButtonPaths()
         {
-            Button[] AllButtons = new Button[] {button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15,button16};
+            var AllButtons = new SoundButton[] {button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15,button16};
             
             foreach (var button in AllButtons)
             {
@@ -56,9 +56,8 @@
                     var buttonName = Path.GetFileNameWithoutExtension(buttonPath);
                     TextInfo ti = new CultureInfo("en-US", false).TextInfo;
                     buttonName = ti.ToTitleCase(buttonName);
-                    button.Tag = buttonPath;
-                    button.Text = buttonName;
-                    _playerDictionary.Add(button.Text, new WMPLib.WindowsMediaPlayer());
+                    button.Path = buttonPath;
+                    button.ButtonName = buttonName;
                     SetRightClickSelectedOptions(buttonName);
                 }
             }
@@ -95,7 +94,7 @@
 
         private void button_MouseUp(object sender, MouseEventArgs e)
         {
-            Control pressedButton = sender as Control;
+            var pressedButton = sender as SoundButton;
             _pressedButton = pressedButton;
 
             if (e.Button == MouseButtons.Right)
@@ -150,13 +149,14 @@
         private void MenuItem_Click(Object sender, System.EventArgs e)
         {
             MenuItem item = sender as MenuItem;
-            _pressedButton.Text = item.Text;
-            _pressedButton.Tag = soundFolderPath + "\\" + _pressedButton.Text + ".mp3";
-            string path = _pressedButton.Tag as string;
-            SetRightClickSelectedOptions(_pressedButton.Text);
-            SaveButtonPathToConfig(path);
+            var buttonName = item.Text;
+            var path = soundFolderPath + "\\" + buttonName + ".mp3";
+
+            _pressedButton.Text = _pressedButton.ButtonName = buttonName;
+            _pressedButton.Path = path;
             
-            _playerDictionary.Add(item.Text, new WMPLib.WindowsMediaPlayer());
+            SetRightClickSelectedOptions(_pressedButton.Text);
+            SaveButtonPathToConfig(path);           
         }
 
         private void SetRightClickSelectedOptions(String selected)
@@ -169,55 +169,50 @@
             ConfigHelper.AddUpdateAppSettings(_pressedButton.AccessibleDescription, buttonPath);
         }
 
-        private void SaveButtonPathToConfig(Button button, string buttonPath)
+        private void SaveButtonPathToConfig(SoundButton button, string buttonPath)
         {
             ConfigHelper.AddUpdateAppSettings(button.AccessibleDescription, buttonPath);
         }
 
         private void SoundButton_Click(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            var path = "";
-            if(button.Tag != null)
+            var button = sender as SoundButton;
+            
+            if (File.Exists(button.Path))
             {
-                path = button.Tag as string;
-
-                if (File.Exists(path))
-                {
-                    var player = _playerDictionary[button.Text];
-                    player.URL = path;
-                    player.controls.play();
-                }
+                button.Player.Play();
             }
         }
 
         private void KillSoundButton_Click(object sender, EventArgs e)
         {
-            foreach (var playerItem in _playerDictionary)
+            foreach (var soundButton in _soundButtons)
             {
-                playerItem.Value.controls.stop();
+                soundButton.Player.Stop();
             }
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            foreach(var playerItem in _playerDictionary)
+            foreach(var soundButton in _soundButtons)
             {
-                playerItem.Value.settings.volume = trackBar1.Value;
+                soundButton.Player.SetVolume(trackBar1.Value);
             }
         }
 
         private void ClearAllButtons_Click(object sender, EventArgs e)
         {
-            Button[] AllButtons = new Button[] {button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16};
+            var AllButtons = new SoundButton[] {button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16};
 
             foreach(var button in AllButtons)
             {
                 SaveButtonPathToConfig(button, "");
-                button.Tag = "";
-                button.Text = "(Empty)";
+                button.Path = "";
+                button.ButtonName = "(Empty)";
+                button.Text = button.ButtonName;
+                button.Player = new Player();
             }
-            _playerDictionary = new Dictionary<string, WMPLib.WindowsMediaPlayer>();
+            _soundButtons = new List<SoundButton>();
             selectedOptions.Clear();
         }
     }
