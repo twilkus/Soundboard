@@ -32,23 +32,21 @@
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-        private List<SoundButton> _soundButtons;
+        private SoundButton[] _allButtons;
         private List<string> selectedOptions = new List<string>();
 
         public Form1()
         {
             InitializeComponent();
             trackBar1.Value = 50;
-            _soundButtons = new List<SoundButton>();
+            _allButtons = new SoundButton[] { button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 };
             SetPath();
             SetButtonPaths();
         }
 
         private void SetButtonPaths()
         {
-            var AllButtons = new SoundButton[] {button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15,button16};
-            
-            foreach (var button in AllButtons)
+            foreach (var button in _allButtons)
             {
                 if ((!string.IsNullOrEmpty(ConfigurationManager.AppSettings[button.AccessibleDescription])) && (File.Exists(ConfigurationManager.AppSettings[button.AccessibleDescription])))
                 {
@@ -186,7 +184,7 @@
 
         private void KillSoundButton_Click(object sender, EventArgs e)
         {
-            foreach (var soundButton in _soundButtons)
+            foreach (var soundButton in _allButtons)
             {
                 soundButton.Player.Stop();
             }
@@ -194,7 +192,7 @@
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            foreach(var soundButton in _soundButtons)
+            foreach(var soundButton in _allButtons)
             {
                 soundButton.Player.SetVolume(trackBar1.Value);
             }
@@ -202,9 +200,7 @@
 
         private void ClearAllButtons_Click(object sender, EventArgs e)
         {
-            var AllButtons = new SoundButton[] {button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16};
-
-            foreach(var button in AllButtons)
+            foreach(var button in _allButtons)
             {
                 SaveButtonPathToConfig(button, "");
                 button.Path = "";
@@ -212,7 +208,6 @@
                 button.Text = button.ButtonName;
                 button.Player = new Player();
             }
-            _soundButtons = new List<SoundButton>();
             selectedOptions.Clear();
         }
     }

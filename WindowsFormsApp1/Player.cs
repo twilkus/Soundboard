@@ -2,7 +2,7 @@
 {
     public class Player
     {
-        WMPLib.WindowsMediaPlayer WindowsMediaPlayer { get; set; }
+        public WMPLib.WindowsMediaPlayer WindowsMediaPlayer { get; set; }
 
         public Player()
         {
