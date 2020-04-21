@@ -58,6 +58,7 @@
                     buttonName = ti.ToTitleCase(buttonName);
                     button.Tag = buttonPath;
                     button.Text = buttonName;
+                    _playerDictionary.Add(button.Text, new WMPLib.WindowsMediaPlayer());
                     SetRightClickSelectedOptions(buttonName);
                 }
             }
