@@ -33,14 +33,13 @@
         private List<string> soundFiles;
         private ContextMenu cm;
         private WMPLib.WindowsMediaPlayer _player;
-        private List<string> selectedOptions = new List<string>();
+        private Dictionary<string, WMPLib.WindowsMediaPlayer> _playerDictionary;
 
         public Form1()
         {
             InitializeComponent();
-            _player = new WMPLib.WindowsMediaPlayer();
             trackBar1.Value = 50;
-            _player.settings.volume = 50;
+            _playerDictionary = new Dictionary<string, WMPLib.WindowsMediaPlayer>();
             SetPath();
             SetButtonPaths();
         }
@@ -156,6 +155,7 @@
             SetRightClickSelectedOptions(_pressedButton.Text);
             SaveButtonPathToConfig(path);
             
+            _playerDictionary.Add(item.Text, new WMPLib.WindowsMediaPlayer());
         }
 
         private void SetRightClickSelectedOptions(String selected)
@@ -178,21 +178,27 @@
 
                 if (File.Exists(path))
                 {
-                    _player.URL = path;
-                    _player.controls.play();
+                    var player = _playerDictionary[button.Text];
+                    player.URL = path;
+                    player.controls.play();
                 }
             }
         }
 
         private void KillSoundButton_Click(object sender, EventArgs e)
         {
-            _player.controls.stop();
+            foreach (var playerItem in _playerDictionary)
+            {
+                playerItem.Value.controls.stop();
+            }
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            _player.settings.volume = trackBar1.Value;
-
+            foreach(var playerItem in _playerDictionary)
+            {
+                playerItem.Value.settings.volume = trackBar1.Value;
+            }
         }
 
         private void ClearAllButtons_Click(object sender, EventArgs e)
