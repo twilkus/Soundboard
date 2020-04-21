@@ -32,7 +32,7 @@
         private string soundFolderPath;
         private List<string> soundFiles;
         private ContextMenu cm;
-
+        private WMPLib.WindowsMediaPlayer _player;
         private Dictionary<string, WMPLib.WindowsMediaPlayer> _playerDictionary;
 
         public Form1()
@@ -58,6 +58,7 @@
                     buttonName = ti.ToTitleCase(buttonName);
                     button.Tag = buttonPath;
                     button.Text = buttonName;
+                    SetRightClickSelectedOptions(buttonName);
                 }
             }
         }
@@ -113,17 +114,27 @@
                 cm = new ContextMenu();
                 foreach (var item in soundFiles)
                 {
-                    cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
+                    if (!selectedOptions.Contains(item))
+                    {
+                        cm.MenuItems.Add(new MenuItem(item, MenuItem_Click));
+                    }
                 }
 
-                cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
+                if (cm.MenuItems.Count == 0)
+                {
+                    cm.MenuItems.Add(new MenuItem("No unselected sounds"));
+                    cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
+                }
+                else
+                {
+                    cm.Show(pressedButton, new Point(pressedButton.Height / 2, pressedButton.Width / 2));
+                }
             }
         }
 
         private void setFileList()
         {
             soundFiles = new List<string>();
-
             String[] soundFilesWithPath = Directory.GetFiles(soundFolderPath,"*.mp3");
             TextInfo ti = new CultureInfo("en-US", false).TextInfo;
 
@@ -141,10 +152,15 @@
             _pressedButton.Text = item.Text;
             _pressedButton.Tag = soundFolderPath + "\\" + _pressedButton.Text + ".mp3";
             string path = _pressedButton.Tag as string;
-            
+            SetRightClickSelectedOptions(_pressedButton.Text);
             SaveButtonPathToConfig(path);
             
             _playerDictionary.Add(item.Text, new WMPLib.WindowsMediaPlayer());
+        }
+
+        private void SetRightClickSelectedOptions(String selected)
+        {
+            selectedOptions.Add(selected);
         }
 
         private void SaveButtonPathToConfig(string buttonPath)
@@ -152,7 +168,7 @@
             ConfigHelper.AddUpdateAppSettings(_pressedButton.AccessibleDescription, buttonPath);
         }
 
-        private void soundButton_Click(object sender, EventArgs e)
+        private void SoundButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
             var path = "";
@@ -185,7 +201,7 @@
             }
         }
 
-        private void menuItem2_Click(object sender, EventArgs e)
+        private void ClearAllButtons_Click(object sender, EventArgs e)
         {
             Button[] AllButtons = new Button[] {button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16};
 
@@ -194,6 +210,8 @@
                 button.Tag = "";
                 button.Text = "(Empty)";
             }
+
+            selectedOptions.Clear();
         }
     }
 }
