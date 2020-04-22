@@ -176,9 +176,13 @@
         {
             var button = sender as SoundButton;
             
-            if (File.Exists(button.Path))
+            if(button.IsPlaying())
             {
-                button.Player.Play();
+                button.Stop();
+            } 
+            else if (File.Exists(button.Path))
+            {
+                button.Play();
             }
         }
 
@@ -186,7 +190,7 @@
         {
             foreach (var soundButton in _allButtons)
             {
-                soundButton.Player.Stop();
+                soundButton.Stop();
             }
         }
 
@@ -194,7 +198,7 @@
         {
             foreach(var soundButton in _allButtons)
             {
-                soundButton.Player.SetVolume(trackBar1.Value);
+                soundButton.SetVolume(trackBar1.Value);
             }
         }
 
