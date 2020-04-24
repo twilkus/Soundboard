@@ -2,21 +2,22 @@
 {
     public class Player
     {
-        public WMPLib.WindowsMediaPlayer WindowsMediaPlayer { get; set; }
+        public AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer { get; set; }
 
         public Player()
         {
-            WindowsMediaPlayer = new WMPLib.WindowsMediaPlayer();
+            WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            WindowsMediaPlayer.CreateControl();
         }
 
         public void Play()
         {
-            WindowsMediaPlayer.controls.play();
+            WindowsMediaPlayer.Ctlcontrols.play();
         }
 
         public void Stop()
         {
-            WindowsMediaPlayer.controls.stop();
+            WindowsMediaPlayer.Ctlcontrols.stop();
         }
 
         public void SetVolume(int volume)

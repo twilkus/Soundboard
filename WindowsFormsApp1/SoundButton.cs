@@ -17,7 +17,8 @@ namespace Soundboard
             {
                 _path = value;
                 Player.WindowsMediaPlayer.URL = value;
-                Player.WindowsMediaPlayer.controls.stop();
+                Player.WindowsMediaPlayer.Ctlcontrols.stop();
+                Player.WindowsMediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
             }
         }
 
@@ -43,6 +44,11 @@ namespace Soundboard
         public void Stop()
         {
             Player.Stop();
+            SetStyleBackToDefault();
+        }
+
+        public void SetStyleBackToDefault()
+        {
             FlatStyle = FlatStyle.Standard;
             UseVisualStyleBackColor = true;
         }
@@ -51,9 +57,24 @@ namespace Soundboard
         {
             Player.SetVolume(volume);
         }
+
         public bool IsPlaying()
         {
             return Player.WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying;
+        }
+
+        private void player_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            switch ((PlayState)e.newState)
+            {
+                case PlayState.Undefined:
+                    break;
+                case PlayState.MediaEnded:
+                    SetStyleBackToDefault();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
