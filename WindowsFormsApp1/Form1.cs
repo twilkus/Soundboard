@@ -11,23 +11,6 @@
     public partial class Form1 : Form
     {
         private const string pathConfigurationKey = "SoundsPath";
-        //Button keys are stored in button.AccessibleDescription
-        public const string pathButton1Key = "pathButton1";
-        public const string pathButton2Key = "pathButton2";
-        public const string pathButton3Key = "pathButton3";
-        public const string pathButton4Key = "pathButton4";
-        public const string pathButton5Key = "pathButton5";
-        public const string pathButton6Key = "pathButton6";
-        public const string pathButton7Key = "pathButton7";
-        public const string pathButton8Key = "pathButton8";
-        public const string pathButton9Key = "pathButton9";
-        public const string pathButton10Key = "pathButton10";
-        public const string pathButton11Key = "pathButton11";
-        public const string pathButton12Key = "pathButton12";
-        public const string pathButton13Key = "pathButton13";
-        public const string pathButton14Key = "pathButton14";
-        public const string pathButton15Key = "pathButton15";
-        public const string pathButton16Key = "pathButton16";
         private SoundButton _pressedButton;
         private string soundFolderPath;
         private List<string> soundFiles;
