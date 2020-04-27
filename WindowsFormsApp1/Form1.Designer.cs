@@ -29,27 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Soundboard.Player player1 = new Soundboard.Player();
+            Soundboard.Player player2 = new Soundboard.Player();
+            Soundboard.Player player3 = new Soundboard.Player();
+            Soundboard.Player player4 = new Soundboard.Player();
+            Soundboard.Player player18 = new Soundboard.Player();
+            Soundboard.Player player17 = new Soundboard.Player();
+            Soundboard.Player player13 = new Soundboard.Player();
+            Soundboard.Player player14 = new Soundboard.Player();
+            Soundboard.Player player15 = new Soundboard.Player();
+            Soundboard.Player player16 = new Soundboard.Player();
+            Soundboard.Player player9 = new Soundboard.Player();
+            Soundboard.Player player10 = new Soundboard.Player();
+            Soundboard.Player player11 = new Soundboard.Player();
+            Soundboard.Player player12 = new Soundboard.Player();
+            Soundboard.Player player5 = new Soundboard.Player();
+            Soundboard.Player player6 = new Soundboard.Player();
+            Soundboard.Player player7 = new Soundboard.Player();
+            Soundboard.Player player8 = new Soundboard.Player();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new SoundButton();
-            this.button2 = new SoundButton();
-            this.button3 = new SoundButton();
-            this.button4 = new SoundButton();
+            this.button1 = new Soundboard.SoundButton();
+            this.button2 = new Soundboard.SoundButton();
+            this.button3 = new Soundboard.SoundButton();
+            this.button4 = new Soundboard.SoundButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.SetSoundFolderButton = new SoundButton();
-            this.KillSoundButton = new SoundButton();
-            this.button5 = new SoundButton();
-            this.button6 = new SoundButton();
-            this.button7 = new SoundButton();
-            this.button8 = new SoundButton();
-            this.button9 = new SoundButton();
-            this.button10 = new SoundButton();
-            this.button11 = new SoundButton();
-            this.button12 = new SoundButton();
-            this.button13 = new SoundButton();
-            this.button14 = new SoundButton();
-            this.button15 = new SoundButton();
-            this.button16 = new SoundButton();
+            this.SetSoundFolderButton = new Soundboard.SoundButton();
+            this.KillSoundButton = new Soundboard.SoundButton();
+            this.button5 = new Soundboard.SoundButton();
+            this.button6 = new Soundboard.SoundButton();
+            this.button7 = new Soundboard.SoundButton();
+            this.button8 = new Soundboard.SoundButton();
+            this.button9 = new Soundboard.SoundButton();
+            this.button10 = new Soundboard.SoundButton();
+            this.button11 = new Soundboard.SoundButton();
+            this.button12 = new Soundboard.SoundButton();
+            this.button13 = new Soundboard.SoundButton();
+            this.button14 = new Soundboard.SoundButton();
+            this.button15 = new Soundboard.SoundButton();
+            this.button16 = new Soundboard.SoundButton();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
@@ -65,6 +83,9 @@
             this.button1.AccessibleDescription = "pathButton1";
             this.button1.Location = new System.Drawing.Point(13, 13);
             this.button1.Name = "button1";
+            this.button1.Path = null;
+            this.button1.Player = player1;
+            this.button1.PlayPicture = null;
             this.button1.Size = new System.Drawing.Size(100, 60);
             this.button1.TabIndex = 0;
             this.button1.Tag = "";
@@ -76,8 +97,11 @@
             // button2
             // 
             this.button2.AccessibleDescription = "pathButton2";
-            this.button2.Location = new System.Drawing.Point(331, 13);
+            this.button2.Location = new System.Drawing.Point(119, 13);
             this.button2.Name = "button2";
+            this.button2.Path = null;
+            this.button2.Player = player2;
+            this.button2.PlayPicture = null;
             this.button2.Size = new System.Drawing.Size(100, 60);
             this.button2.TabIndex = 1;
             this.button2.Tag = "";
@@ -91,6 +115,9 @@
             this.button3.AccessibleDescription = "pathButton3";
             this.button3.Location = new System.Drawing.Point(225, 13);
             this.button3.Name = "button3";
+            this.button3.Path = null;
+            this.button3.Player = player3;
+            this.button3.PlayPicture = null;
             this.button3.Size = new System.Drawing.Size(100, 60);
             this.button3.TabIndex = 2;
             this.button3.Tag = "";
@@ -102,8 +129,11 @@
             // button4
             // 
             this.button4.AccessibleDescription = "pathButton4";
-            this.button4.Location = new System.Drawing.Point(119, 13);
+            this.button4.Location = new System.Drawing.Point(331, 13);
             this.button4.Name = "button4";
+            this.button4.Path = null;
+            this.button4.Player = player4;
+            this.button4.PlayPicture = null;
             this.button4.Size = new System.Drawing.Size(100, 60);
             this.button4.TabIndex = 3;
             this.button4.Tag = "";
@@ -121,6 +151,9 @@
             // 
             this.SetSoundFolderButton.Location = new System.Drawing.Point(13, 277);
             this.SetSoundFolderButton.Name = "SetSoundFolderButton";
+            this.SetSoundFolderButton.Path = null;
+            this.SetSoundFolderButton.Player = player18;
+            this.SetSoundFolderButton.PlayPicture = null;
             this.SetSoundFolderButton.Size = new System.Drawing.Size(100, 34);
             this.SetSoundFolderButton.TabIndex = 17;
             this.SetSoundFolderButton.Text = "Set Sound Folder Path";
@@ -132,6 +165,9 @@
             this.KillSoundButton.BackColor = System.Drawing.Color.Red;
             this.KillSoundButton.Location = new System.Drawing.Point(331, 289);
             this.KillSoundButton.Name = "KillSoundButton";
+            this.KillSoundButton.Path = null;
+            this.KillSoundButton.Player = player17;
+            this.KillSoundButton.PlayPicture = null;
             this.KillSoundButton.Size = new System.Drawing.Size(100, 82);
             this.KillSoundButton.TabIndex = 18;
             this.KillSoundButton.Text = "Stop All Sounds";
@@ -141,8 +177,11 @@
             // button5
             // 
             this.button5.AccessibleDescription = "pathButton5";
-            this.button5.Location = new System.Drawing.Point(119, 211);
+            this.button5.Location = new System.Drawing.Point(13, 79);
             this.button5.Name = "button5";
+            this.button5.Path = null;
+            this.button5.Player = player13;
+            this.button5.PlayPicture = null;
             this.button5.Size = new System.Drawing.Size(100, 60);
             this.button5.TabIndex = 22;
             this.button5.Tag = "";
@@ -154,8 +193,11 @@
             // button6
             // 
             this.button6.AccessibleDescription = "pathButton6";
-            this.button6.Location = new System.Drawing.Point(225, 211);
+            this.button6.Location = new System.Drawing.Point(119, 79);
             this.button6.Name = "button6";
+            this.button6.Path = null;
+            this.button6.Player = player14;
+            this.button6.PlayPicture = null;
             this.button6.Size = new System.Drawing.Size(100, 60);
             this.button6.TabIndex = 21;
             this.button6.Tag = "";
@@ -167,8 +209,11 @@
             // button7
             // 
             this.button7.AccessibleDescription = "pathButton7";
-            this.button7.Location = new System.Drawing.Point(331, 211);
+            this.button7.Location = new System.Drawing.Point(225, 79);
             this.button7.Name = "button7";
+            this.button7.Path = null;
+            this.button7.Player = player15;
+            this.button7.PlayPicture = null;
             this.button7.Size = new System.Drawing.Size(100, 60);
             this.button7.TabIndex = 20;
             this.button7.Tag = "";
@@ -180,8 +225,11 @@
             // button8
             // 
             this.button8.AccessibleDescription = "pathButton8";
-            this.button8.Location = new System.Drawing.Point(13, 211);
+            this.button8.Location = new System.Drawing.Point(331, 79);
             this.button8.Name = "button8";
+            this.button8.Path = null;
+            this.button8.Player = player16;
+            this.button8.PlayPicture = null;
             this.button8.Size = new System.Drawing.Size(100, 60);
             this.button8.TabIndex = 19;
             this.button8.Tag = "";
@@ -193,8 +241,11 @@
             // button9
             // 
             this.button9.AccessibleDescription = "pathButton9";
-            this.button9.Location = new System.Drawing.Point(119, 79);
+            this.button9.Location = new System.Drawing.Point(13, 145);
             this.button9.Name = "button9";
+            this.button9.Path = null;
+            this.button9.Player = player9;
+            this.button9.PlayPicture = null;
             this.button9.Size = new System.Drawing.Size(100, 60);
             this.button9.TabIndex = 26;
             this.button9.Tag = "";
@@ -206,8 +257,11 @@
             // button10
             // 
             this.button10.AccessibleDescription = "pathButton10";
-            this.button10.Location = new System.Drawing.Point(225, 79);
+            this.button10.Location = new System.Drawing.Point(119, 145);
             this.button10.Name = "button10";
+            this.button10.Path = null;
+            this.button10.Player = player10;
+            this.button10.PlayPicture = null;
             this.button10.Size = new System.Drawing.Size(100, 60);
             this.button10.TabIndex = 25;
             this.button10.Tag = "";
@@ -219,8 +273,11 @@
             // button11
             // 
             this.button11.AccessibleDescription = "pathButton11";
-            this.button11.Location = new System.Drawing.Point(331, 79);
+            this.button11.Location = new System.Drawing.Point(225, 145);
             this.button11.Name = "button11";
+            this.button11.Path = null;
+            this.button11.Player = player11;
+            this.button11.PlayPicture = null;
             this.button11.Size = new System.Drawing.Size(100, 60);
             this.button11.TabIndex = 24;
             this.button11.Tag = "";
@@ -232,8 +289,11 @@
             // button12
             // 
             this.button12.AccessibleDescription = "pathButton12";
-            this.button12.Location = new System.Drawing.Point(13, 79);
+            this.button12.Location = new System.Drawing.Point(331, 145);
             this.button12.Name = "button12";
+            this.button12.Path = null;
+            this.button12.Player = player12;
+            this.button12.PlayPicture = null;
             this.button12.Size = new System.Drawing.Size(100, 60);
             this.button12.TabIndex = 23;
             this.button12.Tag = "";
@@ -245,8 +305,11 @@
             // button13
             // 
             this.button13.AccessibleDescription = "pathButton13";
-            this.button13.Location = new System.Drawing.Point(119, 145);
+            this.button13.Location = new System.Drawing.Point(13, 211);
             this.button13.Name = "button13";
+            this.button13.Path = null;
+            this.button13.Player = player5;
+            this.button13.PlayPicture = null;
             this.button13.Size = new System.Drawing.Size(100, 60);
             this.button13.TabIndex = 30;
             this.button13.Tag = "";
@@ -258,8 +321,11 @@
             // button14
             // 
             this.button14.AccessibleDescription = "pathButton14";
-            this.button14.Location = new System.Drawing.Point(225, 145);
+            this.button14.Location = new System.Drawing.Point(119, 211);
             this.button14.Name = "button14";
+            this.button14.Path = null;
+            this.button14.Player = player6;
+            this.button14.PlayPicture = null;
             this.button14.Size = new System.Drawing.Size(100, 60);
             this.button14.TabIndex = 29;
             this.button14.Tag = "";
@@ -271,8 +337,11 @@
             // button15
             // 
             this.button15.AccessibleDescription = "pathButton15";
-            this.button15.Location = new System.Drawing.Point(331, 145);
+            this.button15.Location = new System.Drawing.Point(225, 211);
             this.button15.Name = "button15";
+            this.button15.Path = null;
+            this.button15.Player = player7;
+            this.button15.PlayPicture = null;
             this.button15.Size = new System.Drawing.Size(100, 60);
             this.button15.TabIndex = 28;
             this.button15.Tag = "";
@@ -284,8 +353,11 @@
             // button16
             // 
             this.button16.AccessibleDescription = "pathButton16";
-            this.button16.Location = new System.Drawing.Point(13, 145);
+            this.button16.Location = new System.Drawing.Point(331, 211);
             this.button16.Name = "button16";
+            this.button16.Path = null;
+            this.button16.Player = player8;
+            this.button16.PlayPicture = null;
             this.button16.Size = new System.Drawing.Size(100, 60);
             this.button16.TabIndex = 27;
             this.button16.Tag = "";
