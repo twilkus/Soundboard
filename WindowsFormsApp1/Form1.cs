@@ -21,7 +21,12 @@
         public Form1()
         {
             InitializeComponent();
-            trackBar1.Value = 50;
+
+            if (Int32.TryParse(ConfigurationManager.AppSettings["masterVolume"], out int vol))
+                trackBar1.Value = vol;
+            else
+                trackBar1.Value = 50;
+
             _allButtons = new SoundButton[] { button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 };
             SetPath();
             SetButtonPaths();
@@ -179,7 +184,8 @@
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            foreach(var soundButton in _allButtons)
+            ConfigHelper.AddUpdateAppSettings("masterVolume", trackBar1.Value.ToString());
+            foreach (var soundButton in _allButtons)
             {
                 soundButton.SetVolume(trackBar1.Value);
             }
