@@ -17,8 +17,8 @@ namespace Soundboard
             {
                 _path = value;
                 Player.WindowsMediaPlayer.URL = value;
-                Player.WindowsMediaPlayer.Ctlcontrols.stop();
-                Player.WindowsMediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
+                Player.WindowsMediaPlayer.controls.stop();
+                //Player.WindowsMediaPlayer.PlayStateChange += new WMPLib.WMPPlaylistChangeEventType(player_PlayStateChange);
             }
         }
 
@@ -63,9 +63,9 @@ namespace Soundboard
             return Player.WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying;
         }
 
-        private void player_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        private void player_PlayStateChange(object sender, WMPLib.WMPPlaylistChangeEventType e)
         {
-            switch ((PlayState)e.newState)
+            switch ((PlayState)e)
             {
                 case PlayState.Undefined:
                     break;
